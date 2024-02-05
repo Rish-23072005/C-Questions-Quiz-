@@ -1,0 +1,23 @@
+Problem Statement:
+
+On a hot summer day, two friends, Kiran and Vinod, bought a watermelon. They picked the largest and ripest one, which weighed w kilos. Both of them prefer even numbers and want to split the watermelon such that each part weighs an even number of kilos. The parts do not have to be equal. Each of them should get a part that weighs positively. Your task is to determine if they can split the watermelon in the desired way.
+
+Input Format:
+
+A single line containing an integer w (1 ≤ w ≤ 100) - the weight of the watermelon.
+
+Output Format:
+
+Print “YES” if the watermelon can be split into two parts, each weighing an even number of kilos; otherwise, print “NO”.
+//code :
+#include <stdio.h>
+int main() {
+    int w;
+    scanf("%d", &w);
+    if (w > 2 && w % 2 == 0) {
+        printf("YES\n");
+    } else {
+        printf("NO\n");
+    }
+    return 0;
+}
