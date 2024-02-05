@@ -1,0 +1,67 @@
+Story:
+
+Once upon a time, in the bustling city of Dubai, lived two best friends, Ram and Shyam. They were software engineers and loved solving complex problems. One day, they visited the iconic Burj Khalifa and were awestruck by its magnificent structure. Inspired by its design, they decided to create a program that would generate a pattern similar to the Burj Khalifa, but with a twist - they wanted to use binary numbers!
+
+Problem Statement:
+
+Ram and Shyam have decided to create a program that generates a pattern resembling the structure of the Burj Khalifa using binary numbers. The height of the structure is determined by the number of lines in the pattern.
+
+Input Format:
+
+The input is a single integer, h (0 ≤ h ≤ 500), representing the height of the structure (number of lines).
+
+Output Format:
+
+The output is a pattern with binary numbers, where each line contains a binary number. The binary numbers start from 0 and increase by 1 in each subsequent line. The binary numbers are right-aligned to create a structure similar to the Burj Khalifa.
+
+Sample Input:
+
+10
+
+Sample Output:
+
+   0 
+   1 
+  10 
+  11 
+ 100 
+ 101 
+ 110 
+ 111 
+1000 
+1001 
+1010
+
+Can Ram and Shyam create such a program? It’s up to you to help them out! Write a program in C that takes the height of the structure as input and outputs the desired pattern.
+// C code :
+#include <stdio.h>
+
+void printBinaryPattern(int height) {
+    for (int i = 0; i <= height; i++) {
+        for (int j = height; j > i; j--) {
+            printf(" ");
+        }
+        for (int k = 0; k <= i; k++) {
+            printf("%d", ((i >> k) & 1));
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    int height;
+    scanf("%d", &height);
+    printBinaryPattern(height);
+    return 0;
+}
+
+# python code :
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+n = int(input())
+l = len(bin(n))-2
+for k in range(n+1):
+    k=bin(k)[2:]
+    p=len(k)
+    print(' '*(l-p)+k)
+
+
