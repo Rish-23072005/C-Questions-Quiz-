@@ -9,7 +9,7 @@ A single line containing an integer w (1 ≤ w ≤ 100) - the weight of the wate
 Output Format:
 
 Print “YES” if the watermelon can be split into two parts, each weighing an even number of kilos; otherwise, print “NO”.
-//code :
+//C code :
 #include <stdio.h>
 int main() {
     int w;
@@ -21,3 +21,13 @@ int main() {
     }
     return 0;
 }
+// Python code
+w = int(input())
+print('YES' if w != 2 and w % 2 == 0 else 'NO')
+    or
+def can_divide_watermelon(w):
+    return 'YES' if w != 2 and w % 2 == 0 else 'NO'
+
+w = int(input())
+print(can_divide_watermelon(w))
+
