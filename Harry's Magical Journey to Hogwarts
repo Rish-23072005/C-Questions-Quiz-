@@ -1,0 +1,84 @@
+Level : 3 Question-3
+
+Problem Statement:
+
+In the small town of Little Whinging, two friends, Harry and Dumbledore, discovered a magical number - 6174, known as the enchanted key. Intrigued by its mystical properties, they decided to embark on a magical journey to transform any 4-digit number with at least two distinct digits into this enchanted key. The transformation process involved the following steps:
+
+For a given number ‘n,’ create two new numbers ‘x’ and ‘y’ by arranging its digits in descending and ascending order, respectively.
+Subtract the smaller number from the larger one to get a new number ‘n.’
+Repeat the process until ‘n’ transforms into the magical key, 6174.
+Harry and Dumbledore’s mission is to count the number of steps required to transform any given number ‘n’ into the enchanted key, 6174.
+
+For example, if they start with the number 1234:
+
+Step 1: x = 4321, y = 1234 => n = x - y => 3087
+Step 2: x = 8730, y = 0378 => n = x - y => 8352
+Step 3: x = 8532, y = 2358 => n = x - y => 6174
+So, the transformation is completed in 3 steps.
+
+Input Format:
+
+Input a 4-digit number ‘n’ with at least two distinct digits.
+Output Format:
+
+The program should output the number of steps required for ‘n’ to be transformed into the magical key, 6174.
+Constraints:
+None
+Sample Input 0: 1235
+
+Sample Output 0: 7
+
+Sample Input 1: 1234
+
+Sample Output 1: 3
+
+Join Harry and Dumbledore on their magical journey and witness the power of the enchanted number 6174!
+
+
+# python code :
+def magical_transformation(n):
+    steps = 0
+    while n != 6174:
+        x = int(''.join(sorted(str(n).zfill(4))))
+        y = int(''.join(sorted(str(n).zfill(4), reverse=True)))
+        n = abs(y - x)
+        steps += 1
+    return steps
+
+n = int(input())
+print(magical_transformation(n))
+
+
+// C code :
+#include <stdio.h>
+#include <stdlib.h>
+
+int compare(const void * a, const void * b) {
+    return *(char*)a - *(char*)b;
+}
+
+int reverse_compare(const void * a, const void * b) {
+    return *(char*)b - *(char*)a;
+}
+
+int magical_transformation(int n) {
+    int steps = 0;
+    while (n != 6174) {
+        char str[5];
+        sprintf(str, "%04d", n);
+        qsort(str, 4, sizeof(char), compare);
+        int x = atoi(str);
+        qsort(str, 4, sizeof(char), reverse_compare);
+        int y = atoi(str);
+        n = abs(y - x);
+        steps++;
+    }
+    return steps;
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    printf("%d\n", magical_transformation(n));
+    return 0;
+}
