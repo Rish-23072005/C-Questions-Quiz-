@@ -1,0 +1,72 @@
+Level 3 : Question-2
+Problem Statement:
+
+In the heat of the summer, two friends, Amrit and Ravi, decide to play a game of Rock-Paper-Scissors to pass the time. Each player makes a decision: Rock, Paper, or Scissors. The winner is determined based on the classic rules: Rock crushes Scissors, Scissors cuts Paper, and Paper covers Rock.
+
+Input Format:
+
+The first line contains the name of the first player (Amrit).
+The second line contains the name of the second player (Ravi).
+The third line contains the decision of Amrit (Rock, Paper, or Scissors).
+The fourth line contains the decision of Ravi (Rock, Paper, or Scissors).
+Constraints:
+
+The length of the player names and decisions is greater than 0.
+Output Format:
+
+Print a single line indicating the winner. If Amrit wins, print “Amrit Wins”; if Ravi wins, print “Ravi Wins”.
+Note: After determining the winner, the program should ask if the players want to start a new game.
+
+
+//Python code :
+def determine_winner(player1, choice1, player2, choice2):
+    if choice1 == choice2:
+        return "Draw"
+    if (choice1 == "Rock" and choice2 == "Scissors") or (choice1 == "Scissors" and choice2 == "Paper") or (choice1 == "Paper" and choice2 == "Rock"):
+        return f"{player1} Wins"
+    else:
+        return f"{player2} Wins"
+
+player1 = input()
+player2 = input()
+choice1 = input()
+choice2 = input()
+
+print(determine_winner(player1, choice1, player2, choice2))
+        or 
+player1 = input()
+choice1 = input()
+player2 = input()
+choice2 = input()
+
+if choice1 == choice2:
+    print("Draw")
+elif (choice1 == "Rock" and choice2 == "Scissors") or (choice1 == "Scissors" and choice2 == "Paper") or (choice1 == "Paper" and choice2 == "Rock"):
+    print(f"{player1} Wins")
+else:
+    print(f"{player2} Wins")
+
+
+//C code : 
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char player1[101], player2[101], choice1[10], choice2[10];
+    scanf("%s", player1);
+    scanf("%s", player2);
+    scanf("%s", choice1);
+    scanf("%s", choice2);
+
+    if (strcmp(choice1, choice2) == 0) {
+        printf("Draw\n");
+    } else if ((strcmp(choice1, "Rock") == 0 && strcmp(choice2, "Scissors") == 0) || (strcmp(choice1, "Scissors") == 0 && strcmp(choice2, "Paper") == 0) || (strcmp(choice1, "Paper") == 0 && strcmp(choice2, "Rock") == 0)) {
+        printf("%s Wins\n", player1);
+    } else {
+        printf("%s Wins\n", player2);
+    }
+
+    return 0;
+}
+
+
