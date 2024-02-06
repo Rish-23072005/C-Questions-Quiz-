@@ -1,0 +1,51 @@
+Problem Statement:
+
+Once upon a time in the kingdom of Parenthia, there was a magical gate that could only be opened by a spell. The spell was a sequence of special symbols, which were nothing but parentheses. The gate would only open if the sequence of parentheses was valid. A valid sequence meant that every open parenthesis had a corresponding close parenthesis.
+
+One day, a brave knight named Sir Codalot was given a sequence of parentheses by the king. The king asked him to determine if the sequence was a valid spell to open the gate. The length of the sequence was greater than 0. If the sequence was valid, it would return True; otherwise, it would return False.
+
+Can you help Sir Codalot write a program to determine if the sequence is a valid spell?
+
+# Python code :
+str=input()
+count=0
+for i in str:
+    if i=="(":
+        count+=1
+    else:
+        count-=1
+        if count<0:
+            break
+if count==0:
+    print("'True'")
+else:
+    print("'False'")
+
+    or
+def is_valid_parentheses(s):
+    stack = []
+    for char in s:
+        if char == '(':
+            stack.append(char)
+        elif char == ')':
+            if not stack or stack.pop() != '(':
+                return False
+    return len(stack) == 0
+
+//C code :
+#include <stdbool.h>
+
+bool is_valid_parentheses(char* s) {
+    int stack_size = 0;
+    for (int i = 0; s[i] != '\0'; i++) {
+        if (s[i] == '(') {
+            stack_size++;
+        } else if (s[i] == ')') {
+            if (stack_size == 0) {
+                return false;
+            }
+            stack_size--;
+        }
+    }
+    return stack_size == 0;
+}
