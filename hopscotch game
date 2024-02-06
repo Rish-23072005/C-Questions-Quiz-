@@ -1,0 +1,30 @@
+In the magical land of Hopscotchville, there is a legendary hopscotch game that only the bravest adventurers dare to play. The game is played on a path of stones, each stone engraved with a number. This number represents the maximum number of stones you can hop forward.
+
+One day, a daring adventurer named Hopsalot decides to take on the challenge. He starts at the first stone and aims to reach the last one. However, there’s a twist: if a stone has the number 0, it means it’s a trap! If Hopsalot lands on it, he can’t hop forward anymore.
+
+Hopsalot has a map of the game in the form of a list of integers, where each integer represents the number of hops he can make from that stone. For example, [2, 0, 1, 0] means he can hop 2 stones from the first stone, but if he lands on the second stone, he’ll be stuck because it’s a trap. On the other hand, [1, 1, 0, 1] is an impossible game because even though he can hop from the first to the second stone, he’ll be stuck on the third stone which is a trap.
+
+Can you help Hopsalot write a program to determine if he can successfully complete the game, starting from the first stone and aiming to reach the last one?
+
+# Python code :
+def can_reach_end(hops):
+    last_pos = len(hops) - 1
+    for i in range(len(hops) - 1, -1, -1):
+        if i + hops[i] >= last_pos:
+            last_pos = i
+    return last_pos == 0
+
+// c code :
+#include <stdbool.h>
+
+bool can_reach_end(int* hops, int hopsSize) {
+    int last_pos = hopsSize - 1;
+    for (int i = hopsSize - 1; i >= 0; i--) {
+        if (i + hops[i] >= last_pos) {
+            last_pos = i;
+        }
+    }
+    return last_pos == 0;
+}
+
+
